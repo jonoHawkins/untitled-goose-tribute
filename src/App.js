@@ -19,7 +19,7 @@ function App() {
       <Goose honk={honk} className="goose" />
     </main>
     <footer className="footer">
-      I ❤ <a href="https://goose.game/">Untitled Goose Game</a> so make this.
+      I ♥️♥️♥️ <a href="https://goose.game/">Untitled Goose Game</a> so make this.
     </footer>
   </div>
   );
