@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useCallback } from 'react';
+import Goose from './Goose';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const [honk, setHonk] = useState(false);
+  const startHonk = useCallback(() => setHonk(true), [setHonk])
+  const stopHonk = useCallback(() => setHonk(false), [setHonk])
+
+  return (<div className="wrapper">
+    <main
+    className="main"
+      onMouseDown={startHonk}
+      onPointerDown={startHonk}
+      onMouseUp={stopHonk}
+      onPointerUp={stopHonk}
+      onMouseLeave={stopHonk}
+      onPointerLeave={stopHonk}
+    >
+      <Goose honk={honk} className="goose" />
+    </main>
+    <footer className="footer">
+      I ❤ <a href="https://goose.game/">Untitled Goose Game</a> so make this.
+    </footer>
+  </div>
   );
 }
 
